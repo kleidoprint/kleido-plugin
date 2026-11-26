@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.kleidoprint/kleido",
+  "title": "Kleido Print",
+  "description": "Design, edit, and order printed business cards. Payment happens on a Stripe checkout link.",
+  "version": "1.0.0",
+  "websiteUrl": "https://www.kleidoprint.com/agents",
+  "repository": {
+    "url": "https://github.com/kleidoprint/kleido-plugin",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://www.kleidoprint.com/mcp"
+    }
+  ]
+}

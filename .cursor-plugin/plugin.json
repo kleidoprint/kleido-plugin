@@ -1,0 +1,16 @@
+{
+  "name": "kleido-print",
+  "version": "1.0.0",
+  "description": "Design, edit, and order printed business cards with Kleido. Connects your Kleido account and teaches the agent to make print-ready card artwork.",
+  "author": {
+    "name": "Kleido",
+    "email": "hello@kleidoprint.com"
+  },
+  "homepage": "https://www.kleidoprint.com/agents",
+  "repository": "https://github.com/kleidoprint/kleido-plugin",
+  "license": "MIT",
+  "keywords": ["business-cards", "printing", "design", "small-business"],
+  "logo": "assets/icon.png",
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}

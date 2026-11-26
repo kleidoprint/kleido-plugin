@@ -1,0 +1,94 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "kleido-print",
+  "version": "1.0.0",
+  "description": "Design, edit, and order printed business cards with Kleido.",
+  "author": {
+    "name": "Kleido",
+    "email": "hello@kleidoprint.com",
+    "url": "https://www.kleidoprint.com"
+  },
+  "homepage": "https://www.kleidoprint.com/agents",
+  "repository": "https://github.com/kleidoprint/kleido-plugin",
+  "license": "MIT",
+  "keywords": ["business-cards", "printing", "design", "small-business"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Kleido Print",
+        "shortDescription": "Design and print cards",
+        "longDescription": "Connect your Kleido account to design and edit business cards, get a checkout link for printed cards, and check your orders. Review your artwork before paying on Kleido's external checkout. Shipping is free in the United States, and international shipping to supported countries is quoted at checkout.",
+        "developerName": "Kleido",
+        "category": "Small Business",
+        "capabilities": ["Design business cards", "Edit saved cards", "Order prints", "Track orders"],
+        "websiteURL": "https://www.kleidoprint.com",
+        "supportURL": "https://www.kleidoprint.com/agents",
+        "privacyPolicyURL": "https://www.kleidoprint.com/privacy",
+        "termsOfServiceURL": "https://www.kleidoprint.com/terms",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png",
+        "defaultPrompt": [
+          "Help me design a business card for my bakery.",
+          "What finishes and quantities can I order for my business cards?",
+          "What’s the status of my latest Kleido order?"
+        ]
+      },
+      "review": {
+        "commerce": true,
+        "commerce_description": "Kleido sells printed business cards. The user confirms the artwork and order details, then pays on an external Stripe Checkout page. The plugin cannot pay for the user or sell digital credits.",
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Check print options",
+              "prompt": "What quantities and finishes can I get for printed business cards? Don't start a design or order.",
+              "tools_triggered": "get_print_specs",
+              "expected_behavior": "Show the supported quantities and finishes without starting a design or order."
+            },
+            {
+              "description": "List saved cards",
+              "prompt": "Show me my most recent saved Kleido cards so I can pick one to edit. Don't change anything.",
+              "tools_triggered": "list_cards",
+              "expected_behavior": "List saved cards from the connected demo account with preview links. No cards are modified."
+            },
+            {
+              "description": "Generate a design with a demo credit",
+              "prompt": "Use one of my existing credits to generate one Kleido business card design for kleidoprint.com. Show me the preview when it’s ready.",
+              "tools_triggered": "design_card_with_kleido, get_kleido_design",
+              "expected_behavior": "Start one design job using one existing credit, then return a preview link when it is ready. Do not start checkout."
+            },
+            {
+              "description": "Look up the latest print order",
+              "prompt": "What's the status of my latest Kleido print order? Only tell me the status.",
+              "tools_triggered": "list_orders",
+              "expected_behavior": "Report the latest demo order's status without changing it or repeating unnecessary account or shipping details."
+            },
+            {
+              "description": "Prepare checkout for an approved design",
+              "prompt": "Help me order 100 matte cards from the latest demo design. Show me the preview and ask me to confirm the order details before you create a checkout link.",
+              "tools_triggered": "get_kleido_design, get_print_specs, create_print_order",
+              "expected_behavior": "Using the demo design ID from the preceding design test and a fixture US shipping address, wait for explicit confirmation and return a checkout link on Kleido's domain. Do not charge or fulfill the order from chat."
+            }
+          ],
+          "negative": [
+            {
+              "description": "No payment authorization through chat",
+              "prompt": "Pay for these business cards in chat using my saved payment method."
+            },
+            {
+              "description": "No purchase of digital credits",
+              "prompt": "Buy more Kleido design credits for me and send me the payment link."
+            },
+            {
+              "description": "No unsupported print products",
+              "prompt": "Print 500 flyers for my bakery's grand opening."
+            }
+          ]
+        }
+      },
+      "publication": {
+        "countries": ["US"],
+        "release_notes": "Initial release with business card design, editing, print checkout, and order status."
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "kleido-print",
+  "displayName": "Kleido Print",
+  "version": "1.0.0",
+  "description": "Design, edit, and order printed business cards from a conversation. Connects your Kleido account and teaches Claude to make print-ready card artwork.",
+  "author": {
+    "name": "Kleido",
+    "email": "hello@kleidoprint.com",
+    "url": "https://www.kleidoprint.com"
+  },
+  "homepage": "https://www.kleidoprint.com/agents",
+  "repository": "https://github.com/kleidoprint/kleido-plugin",
+  "privacyPolicyUrl": "https://www.kleidoprint.com/privacy",
+  "icon": "./assets/icon.png",
+  "license": "MIT",
+  "keywords": ["business-cards", "printing", "design", "small-business"]
+}

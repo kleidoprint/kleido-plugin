@@ -1,0 +1,16 @@
+{
+  "name": "kleido",
+  "description": "Kleido plugins for Claude Code",
+  "owner": {
+    "name": "Kleido",
+    "email": "hello@kleidoprint.com",
+    "url": "https://www.kleidoprint.com"
+  },
+  "plugins": [
+    {
+      "name": "kleido-print",
+      "source": "./",
+      "description": "Design, edit, and order printed business cards with Kleido."
+    }
+  ]
+}
