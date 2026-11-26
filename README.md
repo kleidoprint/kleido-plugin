@@ -52,7 +52,7 @@ One folder serves every client:
 | `server.json`                                       | The [MCP Registry](https://registry.modelcontextprotocol.io)          |
 | `skills/business-cards/`                            | Every client (the [Agent Skills](https://agentskills.io) format)      |
 
-Keep `version` the same in `plugin.json`, `.claude-plugin/plugin.json`, `.cursor-plugin/plugin.json`, and `server.json`, and raise it with every release. `scripts/check.sh` checks this and validates the manifests; CI runs it on every push.
+Keep `version` the same in `plugin.json`, `.claude-plugin/plugin.json`, `.cursor-plugin/plugin.json`, and `server.json`, and raise it with every release. `scripts/check.sh` checks this and validates the manifests; CI runs it on every push. Pushing a matching tag such as `v1.0.0` publishes `server.json` to the MCP Registry as `io.github.kleidoprint/kleido`.
 
 ## Support
 

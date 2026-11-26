@@ -1,0 +1,56 @@
+name: Publish to MCP Registry
+
+# Publishes server.json to https://registry.modelcontextprotocol.io as
+# io.github.kleidoprint/kleido. Push a tag that matches the version in the
+# manifests (for example v1.0.0). GitHub OIDC proves this repo belongs to the
+# kleidoprint org, so no secret is needed.
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      MCP_PUBLISHER_VERSION: v1.8.16
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Check the tag matches server.json
+        run: |
+          version=$(jq -r .version server.json)
+          if [ "v$version" != "$GITHUB_REF_NAME" ]; then
+            echo "Tag $GITHUB_REF_NAME doesn't match server.json version $version" >&2
+            exit 1
+          fi
+
+      - name: Install cosign
+        uses: sigstore/cosign-installer@881c63bd87e38389154debd8331404ce7ca8a3ab # v4.1.4
+
+      - name: Download and verify mcp-publisher
+        run: |
+          set -euo pipefail
+          archive=mcp-publisher_linux_amd64.tar.gz
+          base_url="https://github.com/modelcontextprotocol/registry/releases/download/${MCP_PUBLISHER_VERSION}"
+          curl --fail --location --silent --show-error --output "$archive" "$base_url/$archive"
+          curl --fail --location --silent --show-error --output "$archive.sigstore.json" "$base_url/$archive.sigstore.json"
+          cosign verify-blob \
+            --bundle "$archive.sigstore.json" \
+            --certificate-identity "https://github.com/modelcontextprotocol/registry/.github/workflows/release.yml@refs/tags/${MCP_PUBLISHER_VERSION}" \
+            --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
+            "$archive"
+          tar xzf "$archive" mcp-publisher
+          rm -f "$archive" "$archive.sigstore.json"
+
+      - name: Sign in to the MCP Registry
+        run: ./mcp-publisher login github-oidc
+
+      - name: Publish
+        run: ./mcp-publisher publish
