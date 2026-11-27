@@ -13,7 +13,7 @@ If the tools aren't available, the user hasn't connected their Kleido account ye
 
 - **New cards**: follow [Design a new card](#design-a-new-card), then [Order prints](#order-prints).
 - **Changes to a card they have** (a kleidoprint.com/c/ link, or "my card"): follow [Edit a saved card](#edit-a-saved-card).
-- **Order status**: call `list_orders` or `get_order` and answer only what they asked. These are read-only.
+- **Order status**: call `list_orders` or `get_order` and answer only what they asked. These are read-only. If the user lost the payment link for an unpaid order, `get_order` returns it as `checkoutUrl` while the checkout is still open.
 
 ## Design a new card
 
@@ -36,7 +36,7 @@ If the tools aren't available, the user hasn't connected their Kleido account ye
 3. Call `edit_card` with the latest `revision`. Prefer small find-and-replace `edits` on the HTML you read. Change printed text with `field_values` and the QR link with `qr_url`. Send a whole `front_html` or `back_html` only for a redesign. Follow the `rules` that `get_card_for_editing` returns.
 4. Look at the two images `edit_card` returns. Fix text that overflows, weak contrast, and anything within 18 px of an edge before you tell the user it's done.
 5. If `edit_card` says the card changed since you read it, call `get_card_for_editing` again and reapply the change.
-6. `revert_card` undoes every agent edit on the card. Ask the user before calling it.
+6. `revert_card` undoes every design change (HTML edits) and restores the original design. Ask the user before calling it. It doesn't undo `field_values` or `qr_url`: to undo those, call `edit_card` with the earlier values, so note them before you change them.
 
 Editing is free. The user orders prints of a saved card from its card page.
 

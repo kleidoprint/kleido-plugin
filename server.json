@@ -3,7 +3,7 @@
   "name": "io.github.kleidoprint/kleido",
   "title": "Kleido Print",
   "description": "Design, edit, and order printed business cards. Payment happens on a Stripe checkout link.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "websiteUrl": "https://www.kleidoprint.com/agents",
   "repository": {
     "url": "https://github.com/kleidoprint/kleido-plugin",
