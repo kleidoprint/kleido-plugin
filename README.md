@@ -1,6 +1,6 @@
 # Kleido Print
 
-Design, edit, and order printed business cards from Claude, ChatGPT, Codex, Cursor, and other AI agents. Kleido prints the cards and ships them; you approve the design and pay on a Stripe checkout page.
+Design business cards and loyalty stamp cards from Claude, ChatGPT, Codex, Cursor, and other AI agents, then get them printed and shipped to you. You approve the design and pay on a Stripe checkout page.
 
 This repository is the Kleido plugin. It contains the connection to Kleido's hosted MCP server and a skill that teaches the agent how to use it. The server itself runs at `https://www.kleidoprint.com/mcp` and isn't part of this repository.
 

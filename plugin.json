@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "kleido-print",
-  "version": "1.0.1",
-  "description": "Design, edit, and order printed business cards with Kleido.",
+  "version": "1.0.2",
+  "description": "Design business and stamp cards with Kleido, printed and shipped to you.",
   "author": {
     "name": "Kleido",
     "email": "hello@kleidoprint.com",

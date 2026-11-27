@@ -1,7 +1,7 @@
 {
   "name": "kleido-print",
-  "version": "1.0.1",
-  "description": "Design, edit, and order printed business cards with Kleido. Connects your Kleido account and teaches the agent to make print-ready card artwork.",
+  "version": "1.0.2",
+  "description": "Design business cards and loyalty stamp cards with your agent, then get them printed and shipped to you. Connects your Kleido account and teaches the agent to make print-ready card artwork.",
   "author": {
     "name": "Kleido",
     "email": "hello@kleidoprint.com"
