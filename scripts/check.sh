@@ -33,6 +33,7 @@ if market["plugins"][0]["name"] != names["plugin.json"]:
 urls = {
     "mcp.json": [s["url"] for s in json.load(open("mcp.json"))["mcpServers"].values()],
     ".mcp.json": [s["url"] for s in json.load(open(".mcp.json"))["mcpServers"].values()],
+    "mcp_config.json": [s["serverUrl"] for s in json.load(open("mcp_config.json"))["mcpServers"].values()],
     "server.json": [r["url"] for r in json.load(open("server.json"))["remotes"]],
 }
 if len({tuple(u) for u in urls.values()}) != 1:

@@ -19,6 +19,14 @@ claude plugin install kleido-print --marketplace kleidoprint/kleido-plugin
 
 Then run `/mcp`, choose `plugin:kleido-print:kleido`, and sign in.
 
+**Antigravity**
+
+```sh
+agy plugin install https://github.com/kleidoprint/kleido-plugin
+```
+
+Use the full URL; `agy` doesn't accept `kleidoprint/kleido-plugin`. Then open `/plugin`, expand kleido-print under Installed, and choose Sign in. Sign in there before you use one-shot `agy -p` runs, which can't open the sign-in page.
+
 **Claude (claude.ai, desktop, Cowork), ChatGPT, Codex, and Cursor**: install Kleido Print from the app's plugin directory once it's listed there. Until then, add the server by URL with OAuth; [kleidoprint.com/agents](https://www.kleidoprint.com/agents) has steps for each app.
 
 **Any MCP client**: connect to `https://www.kleidoprint.com/mcp` (Streamable HTTP, OAuth).
@@ -49,6 +57,7 @@ One folder serves every client:
 | `.claude-plugin/plugin.json`, `.mcp.json`           | Claude (claude.ai, Cowork, Claude Code)                               |
 | `.claude-plugin/marketplace.json`                   | Claude Code installs from this repository                             |
 | `.cursor-plugin/plugin.json`                        | Cursor                                                                |
+| `mcp_config.json`                                   | Antigravity, which doesn't read `mcp.json` yet                        |
 | `server.json`                                       | The [MCP Registry](https://registry.modelcontextprotocol.io)          |
 | `skills/business-cards/`                            | Every client (the [Agent Skills](https://agentskills.io) format)      |
 
