@@ -11,6 +11,9 @@
   "homepage": "https://www.kleidoprint.com/agents",
   "repository": "https://github.com/kleidoprint/kleido-plugin",
   "privacyPolicyUrl": "https://www.kleidoprint.com/privacy",
+  "termsOfServiceUrl": "https://www.kleidoprint.com/terms",
+  "documentationUrl": "https://www.kleidoprint.com/agents",
+  "supportUrl": "mailto:hello@kleidoprint.com",
   "icon": "./assets/icon.png",
   "license": "MIT",
   "keywords": ["business-cards", "printing", "design", "small-business"]
