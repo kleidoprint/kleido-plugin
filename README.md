@@ -7,7 +7,7 @@ This repository is the Kleido plugin. It contains the connection to Kleido's hos
 ## What's included
 
 - **Kleido connector** (`https://www.kleidoprint.com/mcp`): tools to read print options and prices, start a design with Kleido's designer, edit your saved cards, create a print order, and check order status. You sign in with your Kleido account over OAuth; there are no API keys.
-- **`business-cards` skill**: tells the agent how to use those tools in order. It asks whether you want Kleido's designer (1 credit per design) or a free design the agent writes itself, shows you a proof, and confirms the quantity, finish, and address before it creates a checkout link.
+- **`business-cards` skill**: tells the agent how to use those tools in order, for business cards and loyalty stamp cards. It asks whether you want Kleido's designer (1 credit per design) or a free design the agent writes itself, helps you plan a stamp card's reward and stamp count, shows you a proof, and confirms the quantity, finish, and address before it creates a checkout link.
 
 ## Install
 
