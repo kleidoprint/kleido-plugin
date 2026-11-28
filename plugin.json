@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "kleido-print",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Design business and stamp cards with Kleido, printed and shipped to you.",
   "author": {
     "name": "Kleido",
@@ -48,7 +48,7 @@
       },
       "review": {
         "commerce": true,
-        "commerce_description": "Kleido sells printed business cards. The user confirms the artwork and order details, then pays on an external Stripe Checkout page. The plugin cannot pay for the user or sell digital credits.",
+        "commerce_description": "Kleido sells printed business cards and loyalty stamp cards. The user confirms the artwork and order details, then pays on an external Stripe Checkout page. The plugin cannot pay for the user or sell digital credits. Reviewers: please stop at the Stripe Checkout page and do not complete payment; a paid order is printed and shipped for real.",
         "test_cases": {
           "positive": [
             {
@@ -61,7 +61,7 @@
               "description": "List saved cards",
               "prompt": "Show me my most recent saved Kleido cards so I can pick one to edit. Don't change anything.",
               "tools_triggered": "list_cards",
-              "expected_behavior": "List saved cards from the connected demo account with preview links. No cards are modified."
+              "expected_behavior": "List the demo account's saved cards (a Tandem Works business card and a Daybreak Cinema stamp card) with preview links. No cards are modified."
             },
             {
               "description": "Generate a design with a demo credit",
@@ -70,16 +70,16 @@
               "expected_behavior": "Start one design job using one existing credit, then return a preview link when it is ready. Do not start checkout."
             },
             {
-              "description": "Look up the latest print order",
-              "prompt": "What's the status of my latest Kleido print order? Only tell me the status.",
-              "tools_triggered": "list_orders",
-              "expected_behavior": "Report the latest demo order's status without changing it or repeating unnecessary account or shipping details."
-            },
-            {
               "description": "Prepare checkout for an approved design",
               "prompt": "Help me order 100 matte cards from the latest demo design. Show me the preview and ask me to confirm the order details before you create a checkout link.",
               "tools_triggered": "get_kleido_design, get_print_specs, create_print_order",
               "expected_behavior": "Using the demo design ID from the preceding design test and a fixture US shipping address, wait for explicit confirmation, then return a Stripe checkout link for the user to pay on. Do not charge or fulfill the order from chat."
+            },
+            {
+              "description": "Look up the latest print order",
+              "prompt": "What's the status of my latest Kleido print order? Only tell me the status.",
+              "tools_triggered": "list_orders",
+              "expected_behavior": "Report the latest order's status (awaiting payment after the checkout test) without changing it or repeating unnecessary account or shipping details. If no order has been placed yet, say there are no orders."
             }
           ],
           "negative": [
@@ -99,7 +99,38 @@
         }
       },
       "publication": {
-        "countries": ["US"],
+        "countries": [
+          "US",
+          "AU",
+          "AT",
+          "BE",
+          "BR",
+          "CA",
+          "DK",
+          "FI",
+          "FR",
+          "DE",
+          "HK",
+          "IN",
+          "IE",
+          "IL",
+          "IT",
+          "JP",
+          "MX",
+          "NL",
+          "NZ",
+          "NO",
+          "PL",
+          "PT",
+          "SG",
+          "KR",
+          "ES",
+          "SE",
+          "CH",
+          "TW",
+          "AE",
+          "GB"
+        ],
         "release_notes": "Initial release: design business cards and loyalty stamp cards with Kleido's designer or the assistant, edit saved cards, order prints through an external checkout, and check order status."
       }
     }
