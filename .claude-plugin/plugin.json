@@ -1,7 +1,7 @@
 {
   "name": "kleido-print",
   "displayName": "Kleido Print",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Design business cards and loyalty stamp cards in a conversation, then get them printed and shipped to you. Connects your Kleido account and teaches Claude to make print-ready card artwork.",
   "author": {
     "name": "Kleido",
