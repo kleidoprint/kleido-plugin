@@ -1,6 +1,6 @@
 {
   "name": "kleido-print",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Design business cards and loyalty stamp cards with your agent, then get them printed and shipped to you. Connects your Kleido account and teaches the agent to make print-ready card artwork.",
   "author": {
     "name": "Kleido",
@@ -9,7 +9,7 @@
   "homepage": "https://www.kleidoprint.com/agents",
   "repository": "https://github.com/kleidoprint/kleido-plugin",
   "license": "MIT",
-  "keywords": ["business-cards", "printing", "design", "small-business"],
+  "keywords": ["business-cards", "stamp-cards", "loyalty-cards", "printing", "design", "small-business"],
   "logo": "assets/icon.png",
   "skills": "./skills/",
   "mcpServers": "./.mcp.json"

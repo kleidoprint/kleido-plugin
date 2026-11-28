@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "kleido-print",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Design business and stamp cards with Kleido, printed and shipped to you.",
   "author": {
     "name": "Kleido",
@@ -11,16 +11,29 @@
   "homepage": "https://www.kleidoprint.com/agents",
   "repository": "https://github.com/kleidoprint/kleido-plugin",
   "license": "MIT",
-  "keywords": ["business-cards", "printing", "design", "small-business"],
+  "keywords": [
+    "business-cards",
+    "stamp-cards",
+    "loyalty-cards",
+    "printing",
+    "design",
+    "small-business"
+  ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "Kleido Print",
         "shortDescription": "Design and print cards",
-        "longDescription": "Connect your Kleido account to design and edit business cards, get a checkout link for printed cards, and check your orders. Review your artwork before paying on Kleido's external checkout. Shipping is free in the United States, and international shipping to supported countries is quoted at checkout.",
+        "longDescription": "Connect your Kleido account to design and edit business cards and loyalty stamp cards, get a checkout link for printed cards, and check your orders. Review your artwork before paying on Kleido's external checkout. Shipping is free in the United States, and international shipping to supported countries is quoted at checkout.",
         "developerName": "Kleido",
         "category": "Small Business",
-        "capabilities": ["Design business cards", "Edit saved cards", "Order prints", "Track orders"],
+        "capabilities": [
+          "Design business cards",
+          "Design loyalty stamp cards",
+          "Edit saved cards",
+          "Order prints",
+          "Track orders"
+        ],
         "websiteURL": "https://www.kleidoprint.com",
         "supportURL": "https://www.kleidoprint.com/agents",
         "privacyPolicyURL": "https://www.kleidoprint.com/privacy",
@@ -29,7 +42,7 @@
         "logo": "./assets/icon.png",
         "defaultPrompt": [
           "Help me design a business card for my bakery.",
-          "What finishes and quantities can I order for my business cards?",
+          "Make a loyalty stamp card for my coffee shop: buy 9 coffees, get the 10th free.",
           "What’s the status of my latest Kleido order?"
         ]
       },
