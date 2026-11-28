@@ -3,7 +3,7 @@
   "name": "io.github.kleidoprint/kleido",
   "title": "Kleido Print",
   "description": "Design business and stamp cards, printed and shipped to you. You pay on a Stripe checkout link.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "websiteUrl": "https://www.kleidoprint.com/agents",
   "repository": {
     "url": "https://github.com/kleidoprint/kleido-plugin",
